@@ -2,7 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { API_KEY, BASE_URL } from './constants'
 import { capitalizeFirstLetter } from './utils'
-import WeatherSummaryVue from "./components/WeatherSummary.vue";
+import WeatherSummary from "./components/WeatherSummary.vue";
 import Highlights from "./components/Highlights.vue";
 import Coords from "./components/Coords.vue";
 import Humidity from "./components/Humidity.vue";
@@ -31,8 +31,8 @@ onMounted(getWeather)
                 <div class="city-inner">
                   <input v-model='city' type="text" class="search" @keyup.enter='getWeather'>
                 </div>
-                <WeatherSummaryVue :weatherInfo='weatherInfo' v-if='!isError' />
-                <div c-else class="error">
+                <WeatherSummary :weatherInfo='weatherInfo' v-if='!isError' />
+                <div v-else class="error">
                   <div class="error-title">
                     Ooooops! Something went wrong
                   </div>
